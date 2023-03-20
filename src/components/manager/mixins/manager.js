@@ -62,9 +62,10 @@ export default {
     /**
      * Load selected directory and show files
      * @param path
+     * @param query
      */
-    selectDirectory(path) {
-      this.$store.dispatch(`fm/${this.manager}/selectDirectory`, { path, history: true });
+    selectDirectory(path, query) {
+      this.$store.dispatch(`fm/${this.manager}/selectDirectory`, { path, query, history: true });
     },
 
     /**
