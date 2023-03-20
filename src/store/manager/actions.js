@@ -9,15 +9,16 @@ export default {
    * @param dispatch
    * @param rootState
    * @param path
+   * @param query
    * @param history
    * @returns {Promise}
    */
-  selectDirectory({ state, commit, dispatch, rootState }, { path, history }) {
+  selectDirectory({ state, commit, dispatch, rootState }, { path, query, history }) {
     // reset content
     commit('setDirectoryContent', { directories: [], files: [] });
 
     // get content for the selected directory
-    return GET.content(state.selectedDisk, path).then((response) => {
+    return GET.content(state.selectedDisk, path, query).then((response) => {
       if (response.data.result.status === 'success') {
         commit('resetSelected');
         commit('resetSortSettings');
